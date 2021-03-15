@@ -1,0 +1,9 @@
+---
+
+server:
+  hosts:
+    connector:
+      ansible_host:               "{{ lookup('env', 'SERVER_HOST') }}"
+      ansible_user:               "{{ lookup('env', 'SERVER_USER') }}"
+      ansible_password:           "{{ lookup('env', 'SERVER_PASSWORD') }}"
+      ansible_python_interpreter: /usr/bin/python3

@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+
+  deploy_server:
+
+    # Образ для развертывания
+    image: kirillsilianov/deploy-image:latest
+
+    working_dir: /var/configuration
+
+    # Проброс переменных из .env - файла
+    env_file:
+      - '.env'
+
+    environment:
+      ANSIBLE_HOST_KEY_CHECKING: 'False'
+
+    entrypoint: ansible-playbook ./deploy/deploy.yml -i ./deploy/inventory.yml
+
+    volumes:
+      - type:      bind
+        source:    ./deploy
+        target:    /var/configuration/deploy
+        read_only: yes

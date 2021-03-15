@@ -1,0 +1,11 @@
+---
+
+- name: 'State: APT packages installed'
+  apt:
+    name:
+      - htop
+      - curl
+      - wget
+    state: present
+    update_cache: yes
+    cache_valid_time: "{{ 5 * 24 * 60 * 60 }}"
