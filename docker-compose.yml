@@ -13,10 +13,10 @@ services:
     env_file:
       - '.env'
 
-    environment:
-      ANSIBLE_HOST_KEY_CHECKING: 'False'
+#    environment:
+#      ANSIBLE_HOST_KEY_CHECKING: 'False'
 
-    entrypoint: ansible-playbook ./deploy/deploy.yml -i ./deploy/inventory.yml
+    entrypoint: ansible-playbook ./deploy/deploy.yaml -i ./deploy/inventory.yaml
 
     volumes:
       - type:      bind
